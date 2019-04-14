@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>Fitdex</title>
+    <link rel='stylesheet' href='styles.css'/>
+    <link rel="manifest" href="/manifest.json">
+    <link rel='icon' type='image/png' href ='icon-192.png'>
+  </head>
+  <body>
+    <div class='page-container'>
+      <header class='menu'>
+        <button id='btn-home' class='headerButton'>home</button>
+        <div class='timer'><span class='minutes'>1</span>:<span class='seconds'>00</span></div>
+        <button id='btn-settings' class='headerButton'>settings</button>
+      </header>
+      <!--KEEP IN MIND: you can use the class of <main> to indicate paused or unpaused game state-->
+      <main class='app'>
+        <div class='pile-wrapper'>
+          <div class='card'>
+            <img class='card-img' src='cardSprite.svg#SA'>
+            <!--<img src='https://placeholder.pics/svg/360x540' alt='card face' class='card-img'> -->
+          </div>
+        </div>
+        <div class='info-wrapper'>
+          <div class='exercise-name'>Exercise name</div>
+          
+          <div class='controls'>
+            <button id='btn-next'>
+             <span class='btn-next-label'>next</span>
+            </button>
+          </div>
+        </div>
+      </main>
+      
+      <aside class='exercise-image' style='display: none'>IMAGE</aside>
+      
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
