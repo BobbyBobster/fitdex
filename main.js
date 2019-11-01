@@ -87,6 +87,7 @@ shuffle(deck);
 // Settings menu
 const settings_btn = document.querySelector('#btn-settings');
 //settings_btn.addEventListener('click', atMain ? showSettings : showMain);
+settings_btn.addEventListener('click', changeCard);
 
 function showSettings() {
   const app = document.querySelector('.app');
@@ -145,12 +146,16 @@ function changeCard() {
   const cardLay = document.createElement('div');
   const image = document.createElement('img');
   
-  cardLay.setAttribute('class', 'card_lay');
+  
+  cardLay.setAttribute('class', 'card card_lay');
+  cardLay.setAttribute('style', 'z-index: '+ (10 + app.cardHistory.length));
   image.setAttribute('class', 'card-img');
   image.setAttribute('src', 'cardSprite.svg#'.concat(card.suit.charAt(0), card.rank.charAt(0)));
   image.setAttribute('alt', parseCardName(card));
   
+  if (!!pile.querySelector('#first-card')) {
+    pile.querySelector('#first-card').remove();
+  }
   cardLay.appendChild(image);
   pile.appendChild(cardLay);
-  cardLay.setAttribute('class', 'card')
 }
