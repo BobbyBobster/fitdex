@@ -1,0 +1,33 @@
+#stage {
+  width: 400px;
+  height: 720px;
+  margin: auto;
+  position: relative;
+  border: 2px solid black;
+}
+
+canvas { position: absolute; }
+#ui-banner { 
+  position: absolute;
+  z-index: 4; 
+}
+#touch-layer {
+  position: absolute;
+  z-index: 4;
+  margin: 100px 80px 0px 80px;
+  height: 620px;
+  width: 240px;
+}
+#ui-layer { z-index: 3; }
+#game-layer { z-index: 2; }
+#background-layer { z-index: 1; }
+
+#ui-banner #home {
+  margin: 5px;
+  font-size: 3em;
+}
+#ui-banner #settings {
+  margin: 5px;
+  font-size: 3em;
+}
+
