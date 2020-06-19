@@ -7,6 +7,7 @@ var filesToCache = [
   '/index.html',
   '/main.js',
   '/styles.css',
-  '/settings.svg',
-  '/cardSprite.svg'
+  '/img/settings.svg',
+  '/img/cardSprite.svg'
 ];
+
