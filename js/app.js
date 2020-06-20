@@ -17,18 +17,17 @@ const app = {
   drawY: Math.floor(0.85 * height),
   suits: ['Spades', 'Hearts', 'Clubs', 'Diamonds'],
   ranks: ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'],
-  exercises: ['pushups', 'squats', 'sit-ups', 'seconds plank'],
   cardHistory: []
 }
 
 const opt = {
   time: 60,
+  exercises: ['pushups', 'squats', 'sit-ups', 'seconds plank'],
   amountPerExercise: {
-    Ace: 15,
+    Ace: 10,
     Jack: 11,
     Queen: 12,
     King: 13
   }
 }
-
 
