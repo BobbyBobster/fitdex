@@ -4,6 +4,7 @@
 ### App
 -[] Merge ui.js and cards.js
 -[] Move background to HTML, too little going on to justify own canvas
+-[] Add conditional for a time based exercise
 
 ### PWA
 -[] Add service worker
