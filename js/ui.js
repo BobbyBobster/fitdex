@@ -7,33 +7,76 @@
   canvas.offscreen.height = 340;
   const ctxOffscreen = canvas.offscreen.getContext("2d");
 
-  const cardSprites = new Image();
-  cardSprites.src = "img/cards/2C.svg";
-  cardSprites.crossOrigin = "anonymous";
-  cardSprites.onload = () => {
-    ctxOffscreen.drawImage(cardSprites, 0, 0);
-  };
-
-  const play = document.querySelector("#play");
-  play.addEventListener("click", (event) => {
-    document.querySelectorAll("#explanation p").forEach((element) => {
-      element.style = "display: none";
-    });
-    //nextCard();
-    play.remove();
-  });
 
   const settings = document.querySelector("#settings");
   settings.addEventListener("click", (event) => {
   });
 
-  const next = document.querySelector("#next");
+
+  let deck = createDeck();
   const exerciseInfo = document.querySelector("#exercise p");
-  next.addEventListener("click", (event) => {
-    //nextCard();
+  const visualInfo = document.querySelector("#visual");
+  let preloaded = new Image();
+  preloaded.crossOrigin = "anonymous";
+  const nextCard = () => {
+    if (deck.length === 0)
+      return;
+
+    const card = deck.pop();
+    if (preloaded.src !== "") {
+      ctx.drawImage(preloaded, app.currentX, app.currentY, app.cardWidth, app.cardHeight);
+    } else {
+      const img = new Image();
+      img.src = card.imagePath;
+      img.crossOrigin = "anonymous";
+      img.onload = () => {
+        ctx.drawImage(img, app.currentX, app.currentY, app.cardWidth, app.cardHeight);
+      };
+    }
+    if (deck.length !== 0)
+      preloaded.src = deck[deck.length - 1].imagePath;
+    
+    visualInfo.innerText = card.visual;
+    //exerciseInfo.innerText = card.name;
+    exerciseInfo.innerText = `Do ${card.number} ${card.exercise}!`;
+    //loadCard(deck[deck.length - 1]);
+  };
+
+  const endOfDeck = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.querySelectorAll("#explanation p").forEach((element) => {
+      element.style = "visibility: visible;";
+    });
+    play.style = "display:;";
+    document.querySelector("#next").style = "visibility: hidden;";
+  };
+
+  const play = document.querySelector("#play");
+  play.addEventListener("click", (event) => {
+    document.querySelectorAll("#explanation p").forEach((element) => {
+      element.style = "visibility: hidden;";
+    });
+    play.style = "display: none;";
+    document.querySelector("#next").style = "visibility: visible;";
+    
+    deck = createDeck();
+    preloaded = new Image();
+    nextCard();
   });
 
+  const next = document.querySelector("#next");
+  next.addEventListener("click", (event) => {
+    if (deck.length === 0) {
+      endOfDeck();
+      return;
+    }
 
+    nextCard();
+  });
+
+}
+
+  /*
   const drawTimer = () => {
     ctx.fillStyle = "black";
     ctx.font = "5em sans-serif";
@@ -61,5 +104,5 @@
       --seconds;
     }, 1000);
   };
-}
+  */
 

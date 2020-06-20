@@ -27,5 +27,29 @@ class Card {
     return opt.exercises[app.suits.indexOf(this.suit)];
   }
 
+  get imagePath() {
+    if (this.rank === "10")
+      return `/img/cards/10${this.suit[0]}.svg`;
+    return `/img/cards/${this.rank[0]}${this.suit[0]}.svg`;
+  }
+
+  get emoji() {
+    switch (this.suit) {
+      case "Spades":
+        return "♠️";
+      case "Hearts":
+        return "♥️";
+      case "Clubs":
+        return "♣️";
+      case "Diamonds":
+        return "♦️";
+    }
+  }
+
+  get visual() {
+    if (this.rank === "10")
+      return `10${this.emoji}`;
+    return `${this.rank[0]}${this.emoji}`;
+  }
 }
 

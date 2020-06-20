@@ -22,12 +22,12 @@ const app = {
 
 const opt = {
   time: 60,
-  exercises: ["pushups", "squats", "sit-ups", "seconds plank"],
+  exercises: ["pushups", "squats", "sit-ups", "rows"],
   amountPerExercise: {
-    Ace: 10,
-    Jack: 11,
-    Queen: 12,
-    King: 13
+    Ace: 5,
+    Jack: 5,
+    Queen: 5,
+    King: 5
   }
 }
 

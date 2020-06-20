@@ -15,3 +15,9 @@ function createDeck() {
   return deck;
 }
 
+function loadCard(card) {
+  const sprite = new Image();
+  sprite.src = card.imagePath;
+  sprite.crossOrigin = "anonymous";
+}
+
