@@ -5,18 +5,18 @@ class Card {
   }
 
   get name() {
-    return this.rank + ' of ' + this.suit;
+    return this.rank + " of " + this.suit;
   }
 
   get number() {
     switch (this.rank) {
-      case 'Ace':
+      case "Ace":
         return opt.amountPerExercise.Ace;
-      case 'Jack':
+      case "Jack":
         return opt.amountPerExercise.Jack;
-      case 'Queen':
+      case "Queen":
         return opt.amountPerExercise.Queen;
-      case 'King':
+      case "King":
         return opt.amountPerExercise.King;
       default:
         return this.rank;
@@ -26,5 +26,6 @@ class Card {
   get exercise() {
     return opt.exercises[app.suits.indexOf(this.suit)];
   }
+
 }
 
