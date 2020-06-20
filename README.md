@@ -3,6 +3,7 @@
 ## TODO
 ### App
 -[] Merge ui.js and cards.js
+-[] Move background to HTML, too little going on to justify own canvas
 
 ### PWA
 -[] Add service worker
