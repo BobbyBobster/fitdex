@@ -3,13 +3,12 @@
   const ctx = canvas.getContext("2d");
 
   canvas.offscreen = document.createElement("canvas");
-  canvas.offscreen.width = 5100;
-  canvas.offscreen.height = 2310;
+  canvas.offscreen.width = 250;
+  canvas.offscreen.height = 340;
   const ctxOffscreen = canvas.offscreen.getContext("2d");
 
   const cardSprites = new Image();
-  //cardSprites.src = "img/allCards1024.png";
-  cardSprites.src = "img/allCards.svg";
+  cardSprites.src = "img/cards/2C.svg";
   cardSprites.crossOrigin = "anonymous";
   cardSprites.onload = function () {
     ctxOffscreen.drawImage(cardSprites, 0, 0);
@@ -26,7 +25,7 @@
       element.style = "display: none";
     });
     ctx.drawImage(canvas.offscreen, 
-        30, 30, 360, 540, 
+        0, 0, 241, 336, 
         app.currentX, app.currentY, app.cardWidth, app.cardHeight)
     exercise.innerHTML = "15 Pushups";
   });
@@ -65,12 +64,14 @@
   // Draw timer first time
   (function () {
     ctx.fillStyle = "black";
-    ctx.font = "6em sans-serif";
+    ctx.font = "5em sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText(parseTime(opt.time), timerBox.x + 0.5 * timerBox.width, 80, timerBox.width);
-  })();
+    //ctx.fillText(parseTime(opt.time), timerBox.x + 0.5 * timerBox.width, 80, timerBox.width);
+    ctx.fillText("♠️♥️♣️♦️", timerBox.x + 0.5 * timerBox.width, 80, timerBox.width);
+  }); // XXX to activate add ()
 
   // XXX Merge this with the exercise info eventlistener. The one of arrow button.
+  /*
   const touchlayer = stage.querySelector("#touch-layer");
   touchlayer.addEventListener("click", (event) => {
     if (!timerRunning) {
@@ -78,6 +79,7 @@
       countDown(opt.time);
     }
   });
+  */
 
 }
 
