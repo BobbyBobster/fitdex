@@ -2,9 +2,12 @@
 
 ## TODO
 ### App
--[] Merge ui.js and cards.js
+-[x] Merge ui.js and cards.js
 -[] Move background to HTML, too little going on to justify own canvas
 -[] Add conditional for a time based exercise
+-[] Rename ui.js to something more fitting
+-[] Add more comments while you still can!!!
+-[] Add animations
 
 ### PWA
 -[] Add service worker
