@@ -8,12 +8,7 @@
   const ctxOffscreen = canvas.offscreen.getContext("2d");
 
 
-  const settings = document.querySelector("#settings");
-  settings.addEventListener("click", (event) => {
-  });
-
-
-  let deck = createDeck();
+  let deck;
   const exerciseInfo = document.querySelector("#exercise p");
   const visualInfo = document.querySelector("#visual");
   let preloaded = new Image();
@@ -37,13 +32,12 @@
       preloaded.src = deck[deck.length - 1].imagePath;
     
     visualInfo.innerText = card.visual;
-    //exerciseInfo.innerText = card.name;
     exerciseInfo.innerText = `Do ${card.number} ${card.exercise}!`;
-    //loadCard(deck[deck.length - 1]);
   };
 
   const endOfDeck = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    visualInfo.innerText = "♠️♥️♣️♦️";
     document.querySelectorAll("#explanation p").forEach((element) => {
       element.style = "visibility: visible;";
     });
@@ -59,7 +53,7 @@
     play.style = "display: none;";
     document.querySelector("#next").style = "visibility: visible;";
     
-    deck = createDeck();
+    deck = shuffle(createDeck());
     preloaded = new Image();
     nextCard();
   });
