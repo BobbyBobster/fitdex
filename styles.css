@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   overflow: hidden;
+  font-family: sans-serif;
 }
 
 #explanation {
@@ -11,9 +12,13 @@ html, body {
   width: 70%;
   top: 20%;
   margin: 0% 15%;
-  text-align: center;
-  font-family: sans-serif;
 }
+#explanation #text {
+  text-align: center;
+}
+#explanation #menu {
+}
+
 #exercise {
   z-index: 4;
   position: absolute;
